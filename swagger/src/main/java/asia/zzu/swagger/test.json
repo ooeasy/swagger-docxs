@@ -1,0 +1,199 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger文档生成",
+        "version": "v1.0",
+        "title": "Swagger",
+        "termsOfService": "http://terms.service.url/组织链接",
+        "contact": {
+            "name": "赵庆举",
+            "url": "localhost:8080",
+            "email": "2723734135@qq.com"
+        },
+        "license": {
+            "name": "Apach 2.0 许可",
+            "url": "许可链接"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "data-api-client",
+            "description": "Data Api Client"
+        },
+        {
+            "name": "hello-controller",
+            "description": "Hello Controller"
+        },
+        {
+            "name": "test-controller",
+            "description": "Test Controller"
+        }
+    ],
+    "paths": {
+        "/my/my": {
+            "post": {
+                "tags": [
+                    "test-controller"
+                ],
+                "summary": "my",
+                "operationId": "myUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/我的实体类"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/root": {
+            "get": {
+                "tags": [
+                    "data-api-client"
+                ],
+                "summary": "root",
+                "operationId": "rootUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "请求成功",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "不存在"
+                    }
+                }
+            }
+        },
+        "/test/hello": {
+            "get": {
+                "tags": [
+                    "hello-controller"
+                ],
+                "summary": "测试项目是否启动",
+                "operationId": "helloUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "输入名",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/test/user": {
+            "post": {
+                "tags": [
+                    "hello-controller"
+                ],
+                "summary": "user",
+                "operationId": "userUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/用户实体类"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "我的实体类": {
+            "type": "object",
+            "properties": {
+                "myName": {
+                    "type": "string",
+                    "description": "我的名字"
+                }
+            },
+            "title": "我的实体类"
+        },
+        "用户实体类": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "密码String"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "用户名String"
+                }
+            },
+            "title": "用户实体类"
+        }
+    }
+}
