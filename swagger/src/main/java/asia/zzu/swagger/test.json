@@ -32,6 +32,35 @@
         }
     ],
     "paths": {
+        "/my/father": {
+            "get": {
+                "tags": [
+                    "test-controller"
+                ],
+                "summary": "father",
+                "operationId": "fatherUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/父亲实体类"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
         "/my/my": {
             "post": {
                 "tags": [
@@ -147,6 +176,31 @@
                 "produces": [
                     "*/*"
                 ],
+                "parameters": [
+                    {
+                        "name": "fatherName",
+                        "in": "query",
+                        "description": "父亲的的名字",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "my.myName",
+                        "in": "query",
+                        "description": "我的名字",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "no1",
+                        "description": "没用的属性1",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -180,6 +234,20 @@
                 }
             },
             "title": "我的实体类"
+        },
+        "父亲实体类": {
+            "type": "object",
+            "properties": {
+                "fatherName": {
+                    "type": "string",
+                    "description": "父亲的的名字"
+                },
+                "my": {
+                    "description": "关联测试类",
+                    "$ref": "#/definitions/我的实体类"
+                }
+            },
+            "title": "父亲实体类"
         },
         "用户实体类": {
             "type": "object",
